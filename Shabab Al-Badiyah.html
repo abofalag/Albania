@@ -1,0 +1,1257 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta name="description" content="شباب البادية للحلول الرقمية - شركة متخصصة في تطوير البرمجيات والتحول الرقمي">
+    <title>شباب البادية للحلول الرقمية | Shabab Al-Badiyah</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#8B5CF6',
+                        secondary: '#F59E0B',
+                        dark: '#1E1B4B',
+                        light: '#F3F4F6'
+                    },
+                    fontFamily: {
+                        tajawal: ['Tajawal', 'sans-serif'],
+                    },
+                    screens: {
+                        'xs': '475px',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+        
+        @media (max-width: 768px) {
+            html {
+                font-size: 14px;
+            }
+        }
+        
+        body {
+            font-family: 'Tajawal', sans-serif;
+            overflow-x: hidden;
+            width: 100%;
+            max-width: 100vw;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #8B5CF6 0%, #6D28D9 100%);
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #8B5CF6 0%, #F59E0B 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .hero-pattern {
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%239C92AC' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+        
+        .card-hover {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        @media (min-width: 768px) {
+            .card-hover:hover {
+                transform: translateY(-12px) scale(1.02);
+                box-shadow: 0 25px 50px -12px rgba(139, 92, 246, 0.25);
+            }
+        }
+        
+        .whatsapp-float {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            z-index: 1000;
+            animation: pulse 2s infinite;
+            width: 56px;
+            height: 56px;
+        }
+        
+        @media (min-width: 640px) {
+            .whatsapp-float {
+                bottom: 30px;
+                left: 30px;
+                width: 64px;
+                height: 64px;
+            }
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7); }
+            50% { transform: scale(1.05); box-shadow: 0 0 0 20px rgba(34, 197, 94, 0); }
+        }
+        
+        .service-icon {
+            background: linear-gradient(135deg, #8B5CF6 0%, #F59E0B 100%);
+        }
+        
+        .nav-scrolled {
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(20px) saturate(180%);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .brain-logo {
+            filter: drop-shadow(0 10px 30px rgba(139, 92, 246, 0.3));
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @media (max-width: 768px) {
+            .brain-logo {
+                animation: none;
+            }
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .team-card {
+            overflow: hidden;
+            position: relative;
+        }
+
+        .team-card img {
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        @media (min-width: 768px) {
+            .team-card:hover img {
+                transform: scale(1.15);
+            }
+        }
+
+        .team-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(139, 92, 246, 0.95), transparent);
+            padding: 15px;
+            transform: translateY(100%);
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        @media (min-width: 768px) {
+            .team-overlay {
+                padding: 20px;
+            }
+            .team-card:hover .team-overlay {
+                transform: translateY(0);
+            }
+        }
+
+        /* Mobile Menu Styles */
+        .mobile-menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(5px);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 999;
+        }
+
+        .mobile-menu-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 85%;
+            max-width: 350px;
+            height: 100vh;
+            background: linear-gradient(135deg, #ffffff 0%, #f3f4f6 100%);
+            box-shadow: -10px 0 40px rgba(0, 0, 0, 0.2);
+            transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 1000;
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        @media (min-width: 640px) {
+            .mobile-menu {
+                max-width: 400px;
+            }
+        }
+
+        .mobile-menu.active {
+            right: 0;
+        }
+
+        .mobile-menu-item {
+            opacity: 0;
+            transform: translateX(-30px);
+            transition: all 0.3s ease;
+        }
+
+        .mobile-menu.active .mobile-menu-item {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .mobile-menu.active .mobile-menu-item:nth-child(1) { transition-delay: 0.1s; }
+        .mobile-menu.active .mobile-menu-item:nth-child(2) { transition-delay: 0.15s; }
+        .mobile-menu.active .mobile-menu-item:nth-child(3) { transition-delay: 0.2s; }
+        .mobile-menu.active .mobile-menu-item:nth-child(4) { transition-delay: 0.25s; }
+        .mobile-menu.active .mobile-menu-item:nth-child(5) { transition-delay: 0.3s; }
+        .mobile-menu.active .mobile-menu-item:nth-child(6) { transition-delay: 0.35s; }
+
+        /* Hamburger Menu Animation */
+        .hamburger {
+            width: 30px;
+            height: 24px;
+            position: relative;
+            cursor: pointer;
+            z-index: 1001;
+            padding: 5px;
+        }
+
+        .hamburger span {
+            display: block;
+            position: absolute;
+            height: 3px;
+            width: 100%;
+            background: #1E1B4B;
+            border-radius: 3px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            left: 0;
+        }
+
+        .hamburger span:nth-child(1) { top: 0; }
+        .hamburger span:nth-child(2) { top: 50%; transform: translateY(-50%); }
+        .hamburger span:nth-child(3) { bottom: 0; }
+
+        .hamburger.active span:nth-child(1) {
+            top: 50%;
+            transform: translateY(-50%) rotate(45deg);
+            background: #8B5CF6;
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+            transform: translateX(-20px);
+        }
+
+        .hamburger.active span:nth-child(3) {
+            bottom: 50%;
+            transform: translateY(50%) rotate(-45deg);
+            background: #8B5CF6;
+        }
+
+        /* Counter Animation */
+        .counter {
+            font-variant-numeric: tabular-nums;
+        }
+
+        /* Scroll Progress Bar */
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #8B5CF6, #F59E0B);
+            z-index: 9999;
+            transition: width 0.1s ease;
+        }
+
+        @media (min-width: 768px) {
+            .scroll-progress {
+                height: 4px;
+            }
+        }
+
+        /* Shimmer Effect */
+        .shimmer {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .shimmer::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            animation: shimmer 3s infinite;
+        }
+
+        @keyframes shimmer {
+            100% { left: 100%; }
+        }
+
+        /* Glass Effect */
+        .glass {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        /* Magnetic Button Effect */
+        .magnetic-btn {
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(135deg, #8B5CF6, #F59E0B);
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(135deg, #7C3AED, #D97706);
+        }
+
+        /* Touch-friendly buttons */
+        button, a {
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            user-select: none;
+        }
+
+        /* Prevent text size adjustment on orientation change */
+        @media screen and (max-width: 768px) {
+            body {
+                -webkit-text-size-adjust: 100%;
+                text-size-adjust: 100%;
+            }
+        }
+
+        /* Optimize images */
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Container padding for mobile */
+        .container {
+            width: 100%;
+            padding-right: 1rem;
+            padding-left: 1rem;
+            margin-right: auto;
+            margin-left: auto;
+        }
+
+        @media (min-width: 640px) {
+            .container {
+                max-width: 640px;
+                padding-right: 1.5rem;
+                padding-left: 1.5rem;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .container {
+                max-width: 768px;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .container {
+                max-width: 1024px;
+                padding-right: 2rem;
+                padding-left: 2rem;
+            }
+        }
+
+        @media (min-width: 1280px) {
+            .container {
+                max-width: 1280px;
+            }
+        }
+
+        /* Responsive text sizes */
+        .responsive-title {
+            font-size: 1.75rem;
+            line-height: 1.3;
+        }
+
+        @media (min-width: 640px) {
+            .responsive-title {
+                font-size: 2.25rem;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .responsive-title {
+                font-size: 3rem;
+            }
+        }
+
+        /* Grid optimizations */
+        .responsive-grid {
+            display: grid;
+            gap: 1rem;
+            grid-template-columns: 1fr;
+        }
+
+        @media (min-width: 640px) {
+            .responsive-grid {
+                gap: 1.5rem;
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .responsive-grid {
+                gap: 2rem;
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        /* Blob animations - disable on mobile for performance */
+        @media (min-width: 768px) {
+            @keyframes blob {
+                0% { transform: translate(0px, 0px) scale(1); }
+                33% { transform: translate(30px, -50px) scale(1.1); }
+                66% { transform: translate(-20px, 20px) scale(0.9); }
+                100% { transform: translate(0px, 0px) scale(1); }
+            }
+            .animate-blob {
+                animation: blob 7s infinite;
+            }
+            .animation-delay-2000 {
+                animation-delay: 2s;
+            }
+            .animation-delay-4000 {
+                animation-delay: 4s;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress" id="scrollProgress" style="width: 0%"></div>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="p-6">
+            <div class="flex items-center space-x-4 space-x-reverse mb-8">
+                <img src="logo.png" alt="SAB Logo" class="h-12 w-12 brain-logo">
+                <div>
+                    <h1 class="text-xl font-bold text-primary">SAB</h1>
+                    <p class="text-xs text-secondary font-medium">Shabab Al-Badiyah</p>
+                </div>
+            </div>
+            
+            <nav class="space-y-2">
+                <a href="#home" class="mobile-menu-item block py-3 px-5 rounded-xl text-gray-700 hover:bg-primary hover:text-white transition-all duration-300 font-medium text-base border-r-4 border-transparent hover:border-white">
+                    <i class="fas fa-home ml-3 text-primary"></i>
+                    الرئيسية
+                </a>
+                <a href="#about" class="mobile-menu-item block py-3 px-5 rounded-xl text-gray-700 hover:bg-primary hover:text-white transition-all duration-300 font-medium text-base border-r-4 border-transparent hover:border-white">
+                    <i class="fas fa-info-circle ml-3 text-primary"></i>
+                    من نحن
+                </a>
+                <a href="#services" class="mobile-menu-item block py-3 px-5 rounded-xl text-gray-700 hover:bg-primary hover:text-white transition-all duration-300 font-medium text-base border-r-4 border-transparent hover:border-white">
+                    <i class="fas fa-cogs ml-3 text-primary"></i>
+                    خدماتنا
+                </a>
+                <a href="#team" class="mobile-menu-item block py-3 px-5 rounded-xl text-gray-700 hover:bg-primary hover:text-white transition-all duration-300 font-medium text-base border-r-4 border-transparent hover:border-white">
+                    <i class="fas fa-users ml-3 text-primary"></i>
+                    فريق العمل
+                </a>
+                <a href="#sectors" class="mobile-menu-item block py-3 px-5 rounded-xl text-gray-700 hover:bg-primary hover:text-white transition-all duration-300 font-medium text-base border-r-4 border-transparent hover:border-white">
+                    <i class="fas fa-building ml-3 text-primary"></i>
+                    القطاعات
+                </a>
+                <a href="https://wa.me/201507092631" target="_blank" class="mobile-menu-item block py-3 px-5 rounded-xl bg-gradient-to-l from-primary to-purple-700 text-white transition-all duration-300 font-bold text-base shadow-lg mt-4">
+                    <i class="fab fa-whatsapp ml-3"></i>
+                    تواصل معنا
+                </a>
+            </nav>
+            
+            <div class="mt-8 pt-6 border-t border-gray-200">
+                <p class="text-gray-500 text-sm mb-4">تابعنا على</p>
+                <div class="flex space-x-4 space-x-reverse">
+                    <a href="#" class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-primary hover:text-white transition-all duration-300 transform hover:scale-110">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-primary hover:text-white transition-all duration-300 transform hover:scale-110">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="#" class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-primary hover:text-white transition-all duration-300 transform hover:scale-110">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 py-3">
+        <div class="container">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-3 space-x-reverse">
+                    <img src="logo.png" alt="SAB Logo" class="h-8 w-8 sm:h-10 sm:w-10 brain-logo">
+                    <div>
+                        <h1 class="text-lg sm:text-xl font-bold text-primary">SAB</h1>
+                        <p class="text-xs text-secondary font-medium hidden sm:block">Shabab Al-Badiyah</p>
+                    </div>
+                </div>
+                
+                <div class="hidden md:flex items-center space-x-4 lg:space-x-6 space-x-reverse">
+                    <a href="#home" class="text-gray-700 hover:text-primary transition font-medium text-sm relative group">
+                        الرئيسية
+                        <span class="absolute bottom-0 right-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a href="#about" class="text-gray-700 hover:text-primary transition font-medium text-sm relative group">
+                        من نحن
+                        <span class="absolute bottom-0 right-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a href="#services" class="text-gray-700 hover:text-primary transition font-medium text-sm relative group">
+                        خدماتنا
+                        <span class="absolute bottom-0 right-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a href="#team" class="text-gray-700 hover:text-primary transition font-medium text-sm relative group">
+                        فريق العمل
+                        <span class="absolute bottom-0 right-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a href="https://wa.me/201507092631" target="_blank" class="magnetic-btn bg-gradient-to-l from-primary to-purple-700 text-white px-4 py-2 rounded-full hover:shadow-lg hover:shadow-purple-500/30 transition font-medium text-sm shimmer">
+                        <i class="fab fa-whatsapp ml-2"></i>
+                        تواصل معنا
+                    </a>
+                </div>
+                
+                <div class="hamburger md:hidden" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center pt-16 sm:pt-20 hero-pattern relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-purple-50 to-orange-50 opacity-50"></div>
+        
+        <!-- Animated Background Shapes - Desktop Only -->
+        <div class="hidden md:block absolute inset-0 overflow-hidden pointer-events-none">
+            <div class="absolute top-20 left-10 w-72 h-72 bg-purple-300 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-blob"></div>
+            <div class="absolute top-40 right-10 w-72 h-72 bg-orange-300 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-blob animation-delay-2000"></div>
+            <div class="absolute -bottom-8 left-20 w-72 h-72 bg-purple-300 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-blob animation-delay-4000"></div>
+        </div>
+        
+        <div class="container relative z-10">
+            <div class="grid md:grid-cols-2 gap-6 lg:gap-12 items-center">
+                <div data-aos="fade-right" data-aos-duration="1000">
+                    <div class="inline-block bg-purple-100 text-primary px-3 py-1.5 sm:px-4 sm:py-2 rounded-full text-xs sm:text-sm font-bold mb-4 shimmer">
+                        <i class="fas fa-star ml-2"></i>
+                        نحو مستقبل رقمي أكثر ابتكارًا
+                    </div>
+                    <h1 class="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold leading-tight mb-3 sm:mb-4">
+                        نبني <span class="gradient-text">المستقبل</span><br>
+                        بتقنيات ذكية
+                    </h1>
+                    <p class="text-sm sm:text-base lg:text-lg text-gray-600 mb-4 sm:mb-6 leading-relaxed">
+                        شباب البادية للحلول الرقمية - شريكك الاستراتيجي في التحول الرقمي، نقدم حلولاً تقنية متكاملة للمؤسسات الحكومية والخاصة بأعلى معايير الجودة والأمان
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-3 sm:gap-4">
+                        <a href="https://wa.me/201507092631" target="_blank" class="magnetic-btn bg-gradient-to-l from-primary to-purple-700 text-white px-5 sm:px-6 py-2.5 sm:py-3 rounded-full text-center font-bold hover:shadow-xl hover:shadow-purple-500/30 transition transform hover:-translate-y-0.5 text-sm sm:text-base shimmer">
+                            <i class="fab fa-whatsapp ml-2"></i>
+                            ابدأ مشروعك الآن
+                        </a>
+                        <a href="#services" class="border-2 border-primary text-primary px-5 sm:px-6 py-2.5 sm:py-3 rounded-full text-center font-bold hover:bg-primary hover:text-white transition text-sm sm:text-base">
+                            اكتشف خدماتنا
+                        </a>
+                    </div>
+                    
+                    <div class="mt-6 sm:mt-8 flex items-center space-x-4 sm:space-x-6 space-x-reverse">
+                        <div class="text-center">
+                            <h3 class="text-xl sm:text-2xl font-bold text-primary counter" data-target="70">0</h3>
+                            <p class="text-gray-600 text-xs">+ عميل سعيد</p>
+                        </div>
+                        <div class="w-px h-8 sm:h-10 bg-gray-300"></div>
+                        <div class="text-center">
+                            <h3 class="text-xl sm:text-2xl font-bold text-primary counter" data-target="200">0</h3>
+                            <p class="text-gray-600 text-xs">+ مشروع منجز</p>
+                        </div>
+                        <div class="w-px h-8 sm:h-10 bg-gray-300"></div>
+                        <div class="text-center">
+                            <h3 class="text-xl sm:text-2xl font-bold text-primary counter" data-target="8">0</h3>
+                            <p class="text-gray-600 text-xs">+ سنوات خبرة</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div data-aos="fade-left" data-aos-duration="1000" class="relative">
+                    <div class="relative z-10 bg-white p-4 sm:p-6 rounded-2xl sm:rounded-3xl shadow-2xl">
+                        <img src="logo.png" alt="Digital Brain" class="w-full h-auto brain-logo">
+                    </div>
+                    <div class="absolute -bottom-3 -right-3 sm:-bottom-4 sm:-right-4 bg-secondary text-white p-3 sm:p-4 rounded-lg sm:rounded-xl shadow-xl" data-aos="zoom-in" data-aos-delay="500">
+                        <i class="fas fa-rocket text-xl sm:text-2xl mb-1"></i>
+                        <p class="font-bold text-xs sm:text-sm">تقنيات المستقبل</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-12 sm:py-16 bg-white">
+        <div class="container">
+            <div class="text-center mb-8 sm:mb-12" data-aos="fade-up">
+                <h2 class="text-2xl sm:text-3xl font-bold mb-3">من نحن</h2>
+                <div class="w-16 sm:w-20 h-1 bg-gradient-to-r from-primary to-secondary mx-auto rounded-full"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-6 lg:gap-10 items-center">
+                <div data-aos="fade-right">
+                    <div class="bg-gradient-to-br from-purple-50 to-orange-50 p-5 sm:p-6 rounded-2xl card-hover">
+                        <h3 class="text-lg sm:text-xl font-bold text-primary mb-3">شباب البادية للحلول الرقمية</h3>
+                        <p class="text-gray-700 leading-relaxed mb-4 text-sm sm:text-base">
+                            شركة متخصصة في تطوير البرمجيات، والتحول الرقمي، وتقنيات المعلومات، نقدم حلولًا تقنية متكاملة للمؤسسات الحكومية والخاصة.
+                        </p>
+                        <p class="text-gray-700 leading-relaxed text-sm sm:text-base">
+                            نؤمن بأن التكنولوجيا ليست مجرد أدوات، بل هي استثمار استراتيجي يسهم في رفع كفاءة المؤسسات، وتحسين جودة الخدمات، وتعزيز القدرة على المنافسة.
+                        </p>
+                    </div>
+                </div>
+                
+                <div data-aos="fade-left" class="space-y-4">
+                    <div class="flex items-start space-x-3 space-x-reverse group">
+                        <div class="service-icon w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
+                            <i class="fas fa-eye text-white"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-sm sm:text-base mb-1">رؤيتنا</h4>
+                            <p class="text-gray-600 text-xs sm:text-sm">أن نكون من الشركات الرائدة في الشرق الأوسط وأفريقيا في مجال البرمجيات والتحول الرقمي</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start space-x-3 space-x-reverse group">
+                        <div class="service-icon w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
+                            <i class="fas fa-bullseye text-white"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-sm sm:text-base mb-1">رسالتنا</h4>
+                            <p class="text-gray-600 text-xs sm:text-sm">تطوير حلول تقنية متكاملة تساعد المؤسسات على أتمتة أعمالها وتحسين كفاءتها التشغيلية</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start space-x-3 space-x-reverse group">
+                        <div class="service-icon w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
+                            <i class="fas fa-shield-alt text-white"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-sm sm:text-base mb-1">التزامنا</h4>
+                            <p class="text-gray-600 text-xs sm:text-sm">أعلى معايير الجودة والأمان والابتكار في جميع مشاريعنا</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-12 sm:py-16 bg-gray-50">
+        <div class="container">
+            <div class="text-center mb-8 sm:mb-12" data-aos="fade-up">
+                <h2 class="text-2xl sm:text-3xl font-bold mb-3">مجالات عملنا</h2>
+                <p class="text-gray-600 text-sm sm:text-base max-w-xl mx-auto px-4">نقدم مجموعة شاملة من الحلول التقنية المتكاملة</p>
+                <div class="w-16 sm:w-20 h-1 bg-gradient-to-r from-primary to-secondary mx-auto rounded-full mt-4"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+                <!-- Service 1 -->
+                <div class="bg-white p-5 sm:p-6 rounded-xl shadow-lg card-hover group" data-aos="fade-up" data-aos-delay="100">
+                    <div class="service-icon w-12 h-12 sm:w-14 sm:h-14 rounded-xl flex items-center justify-center mb-3 sm:mb-4 group-hover:scale-110 transition-transform duration-300">
+                        <i class="fas fa-code text-white text-xl sm:text-2xl"></i>
+                    </div>
+                    <h3 class="text-base sm:text-lg font-bold mb-3">تطوير البرمجيات</h3>
+                    <ul class="space-y-1.5 text-gray-600 text-xs sm:text-sm">
+                        <li><i class="fas fa-check text-primary ml-2"></i>تصميم وتطوير مواقع الويب</li>
+                        <li><i class="fas fa-check text-primary ml-2"></i>المتاجر الإلكترونية</li>
+                        <li><i class="fas fa-check text-primary ml-2"></i>تطبيقات Android وiOS</li>
+                        <li><i class="fas fa-check text-primary ml-2"></i>الأنظمة الإدارية</li>
+                    </ul>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="bg-white p-5 sm:p-6 rounded-xl shadow-lg card-hover group" data-aos="fade-up" data-aos-delay="200">
+                    <div class="service-icon w-12 h-12 sm:w-14 sm:h-14 rounded-xl flex items-center justify-center mb-3 sm:mb-4 group-hover:scale-110 transition-transform duration-300">
+                        <i class="fas fa-building text-white text-xl sm:text-2xl"></i>
+                    </div>
+                    <h3 class="text-base sm:text-lg font-bold mb-3">الأنظمة الحكومية</h3>
+                    <ul class="space-y-1.5 text-gray-600 text-xs sm:text-sm">
+                        <li><i class="fas fa-check text-primary ml-2"></i>أنظمة الحكومة الإلكترونية</li>
+                        <li><i class="fas fa-check text-primary ml-2"></i>بوابات الخدمات</li>
+                        <li><i class="fas fa-check text-primary ml-2"></i>أنظمة التراخيص</li>
+                        <li><i class="fas fa-check text-primary ml-2"></i>الأرشفة الإلكترونية</li>
+                    </ul>
+                </div>
+                
+                <!-- Service 3 -->
+                <div class="bg-white p-5 sm:p-6 rounded-xl shadow-lg card-hover group" data-aos="fade-up" data-aos-delay="300">
+                    <div class="service-icon w-12 h-12 sm:w-14 sm:h-14 rounded-xl flex items-center justify-center mb-3 sm:mb-4 group-hover:scale-110 transition-transform duration-300">
+                        <i class="fas fa-coins text-white text-xl sm:text-2xl"></i>
+                    </div>
+                    <h3 class="text-base sm:text-lg font-bold mb-3">القطاع المالي</h3>
+                    <ul class="space-y-1.5 text-gray-600 text-xs sm:text-sm">
+                        <li><i class="fas fa-check text-primary ml-2"></i>الأنظمة المحاسبية</li>
+                        <li><i class="fas fa-check text-primary ml-2"></i>إدارة الميزانيات</li>
+                        <li><i class="fas fa-check text-primary ml-2"></i>الفواتير الإلكترونية</li>
+                        <li><i class="fas fa-check text-primary ml-2"></i>بوابات الدفع</li>
+                    </ul>
+                </div>
+                
+                <!-- Service 4 -->
+                <div class="bg-white p-5 sm:p-6 rounded-xl shadow-lg card-hover group" data-aos="fade-up" data-aos-delay="400">
+                    <div class="service-icon w-12 h-12 sm:w-14 sm:h-14 rounded-xl flex items-center justify-center mb-3 sm:mb-4 group-hover:scale-110 transition-transform duration-300">
+                        <i class="fas fa-cloud text-white text-xl sm:text-2xl"></i>
+                    </div>
+                    <h3 class="text-base sm:text-lg font-bold mb-3">الاستضافة</h3>
+                    <ul class="space-y-1.5 text-gray-600 text-xs sm:text-sm">
+                        <li><i class="fas fa-check text-primary ml-2"></i>استضافة المواقع</li>
+                        <li><i class="fas fa-check text-primary ml-2"></i>الخوادم الافتراضية</li>
+                        <li><i class="fas fa-check text-primary ml-2"></i>الحوسبة السحابية</li>
+                        <li><i class="fas fa-check text-primary ml-2"></i>النسخ الاحتياطي</li>
+                    </ul>
+                </div>
+                
+                <!-- Service 5 -->
+                <div class="bg-white p-5 sm:p-6 rounded-xl shadow-lg card-hover group" data-aos="fade-up" data-aos-delay="500">
+                    <div class="service-icon w-12 h-12 sm:w-14 sm:h-14 rounded-xl flex items-center justify-center mb-3 sm:mb-4 group-hover:scale-110 transition-transform duration-300">
+                        <i class="fas fa-lock text-white text-xl sm:text-2xl"></i>
+                    </div>
+                    <h3 class="text-base sm:text-lg font-bold mb-3">الأمن السيبراني</h3>
+                    <ul class="space-y-1.5 text-gray-600 text-xs sm:text-sm">
+                        <li><i class="fas fa-check text-primary ml-2"></i>حماية الشبكات</li>
+                        <li><i class="fas fa-check text-primary ml-2"></i>إدارة الهوية</li>
+                        <li><i class="fas fa-check text-primary ml-2"></i>اختبار الاختراق</li>
+                        <li><i class="fas fa-check text-primary ml-2"></i>مراقبة الأمن</li>
+                    </ul>
+                </div>
+                
+                <!-- Service 6 -->
+                <div class="bg-white p-5 sm:p-6 rounded-xl shadow-lg card-hover group" data-aos="fade-up" data-aos-delay="600">
+                    <div class="service-icon w-12 h-12 sm:w-14 sm:h-14 rounded-xl flex items-center justify-center mb-3 sm:mb-4 group-hover:scale-110 transition-transform duration-300">
+                        <i class="fas fa-brain text-white text-xl sm:text-2xl"></i>
+                    </div>
+                    <h3 class="text-base sm:text-lg font-bold mb-3">الذكاء الاصطناعي</h3>
+                    <ul class="space-y-1.5 text-gray-600 text-xs sm:text-sm">
+                        <li><i class="fas fa-check text-primary ml-2"></i>حلول الذكاء الاصطناعي</li>
+                        <li><i class="fas fa-check text-primary ml-2"></i>تحليل البيانات</li>
+                        <li><i class="fas fa-check text-primary ml-2"></i>لوحات BI</li>
+                        <li><i class="fas fa-check text-primary ml-2"></i>الأتمتة الذكية</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="team" class="py-12 sm:py-16 bg-white">
+        <div class="container">
+            <div class="text-center mb-8 sm:mb-12" data-aos="fade-up">
+                <h2 class="text-2xl sm:text-3xl font-bold mb-3">فريق العمل</h2>
+                <p class="text-gray-600 text-sm sm:text-base max-w-xl mx-auto">نخبة من المتخصصين في مجال التكنولوجيا والبرمجيات</p>
+                <div class="w-16 sm:w-20 h-1 bg-gradient-to-r from-primary to-secondary mx-auto rounded-full mt-4"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+                <!-- Team Member 1 -->
+                <div class="team-card bg-gray-50 rounded-xl overflow-hidden shadow-lg" data-aos="fade-up" data-aos-delay="100">
+                    <div class="relative overflow-hidden h-64 sm:h-72">
+                        <img src="logo.jpg" alt="Team Member" class="w-full h-full object-cover">
+                        <div class="team-overlay">
+                            <div class="flex space-x-2 space-x-reverse">
+                                <a href="https://wa.me/201507092631" target="_blank" class="w-7 h-7 bg-white rounded-full flex items-center justify-center text-primary hover:bg-secondary hover:text-white transition">
+                                    <i class="fab fa-whatsapp text-xs"></i>
+                                </a>
+                                <a href="#" class="w-7 h-7 bg-white rounded-full flex items-center justify-center text-primary hover:bg-secondary hover:text-white transition">
+                                    <i class="fab fa-linkedin-in text-xs"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-4 text-center">
+                        <h3 class="font-bold text-sm sm:text-base mb-1">محمد</h3>
+                        <p class="text-primary text-xs sm:text-sm">مطور البرمجيات</p>
+                    </div>
+                </div>
+
+                <!-- Team Member 2 -->
+                <div class="team-card bg-gray-50 rounded-xl overflow-hidden shadow-lg" data-aos="fade-up" data-aos-delay="200">
+                    <div class="relative overflow-hidden h-64 sm:h-72">
+                        <img src="logo2.jpg" alt="Team Member" class="w-full h-full object-cover">
+                        <div class="team-overlay">
+                            <div class="flex space-x-2 space-x-reverse">
+                                <a href="https://wa.me/919187012808" target="_blank" class="w-7 h-7 bg-white rounded-full flex items-center justify-center text-primary hover:bg-secondary hover:text-white transition">
+                                    <i class="fab fa-whatsapp text-xs"></i>
+                                </a>
+                                <a href="#" class="w-7 h-7 bg-white rounded-full flex items-center justify-center text-primary hover:bg-secondary hover:text-white transition">
+                                    <i class="fab fa-linkedin-in text-xs"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-4 text-center">
+                        <h3 class="font-bold text-sm sm:text-base mb-1">أحمد</h3>
+                        <p class="text-primary text-xs sm:text-sm">مهندس برمجيات</p>
+                    </div>
+                </div>
+
+                <!-- Add more team members as needed -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Sectors Section -->
+    <section id="sectors" class="py-12 sm:py-16 bg-gray-50">
+        <div class="container">
+            <div class="text-center mb-8 sm:mb-12" data-aos="fade-up">
+                <h2 class="text-2xl sm:text-3xl font-bold mb-3">القطاعات التي نخدمها</h2>
+                <div class="w-16 sm:w-20 h-1 bg-gradient-to-r from-primary to-secondary mx-auto rounded-full"></div>
+            </div>
+            
+            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
+                <div class="bg-white p-4 rounded-lg text-center hover:bg-primary hover:text-white transition duration-300 shadow-md card-hover" data-aos="zoom-in">
+                    <i class="fas fa-landmark text-2xl sm:text-3xl text-primary mb-2 hover:text-white"></i>
+                    <h4 class="font-bold text-xs sm:text-sm">الوزارات</h4>
+                </div>
+                <div class="bg-white p-4 rounded-lg text-center hover:bg-primary hover:text-white transition duration-300 shadow-md card-hover" data-aos="zoom-in" data-aos-delay="100">
+                    <i class="fas fa-university text-2xl sm:text-3xl text-primary mb-2 hover:text-white"></i>
+                    <h4 class="font-bold text-xs sm:text-sm">الجامعات</h4>
+                </div>
+                <div class="bg-white p-4 rounded-lg text-center hover:bg-primary hover:text-white transition duration-300 shadow-md card-hover" data-aos="zoom-in" data-aos-delay="200">
+                    <i class="fas fa-hospital text-2xl sm:text-3xl text-primary mb-2 hover:text-white"></i>
+                    <h4 class="font-bold text-xs sm:text-sm">المستشفيات</h4>
+                </div>
+                <div class="bg-white p-4 rounded-lg text-center hover:bg-primary hover:text-white transition duration-300 shadow-md card-hover" data-aos="zoom-in" data-aos-delay="300">
+                    <i class="fas fa-university text-2xl sm:text-3xl text-primary mb-2 hover:text-white"></i>
+                    <h4 class="font-bold text-xs sm:text-sm">البنوك</h4>
+                </div>
+                <div class="bg-white p-4 rounded-lg text-center hover:bg-primary hover:text-white transition duration-300 shadow-md card-hover" data-aos="zoom-in" data-aos-delay="400">
+                    <i class="fas fa-broadcast-tower text-2xl sm:text-3xl text-primary mb-2 hover:text-white"></i>
+                    <h4 class="font-bold text-xs sm:text-sm">الاتصالات</h4>
+                </div>
+                <div class="bg-white p-4 rounded-lg text-center hover:bg-primary hover:text-white transition duration-300 shadow-md card-hover" data-aos="zoom-in" data-aos-delay="500">
+                    <i class="fas fa-industry text-2xl sm:text-3xl text-primary mb-2 hover:text-white"></i>
+                    <h4 class="font-bold text-xs sm:text-sm">المصانع</h4>
+                </div>
+                <div class="bg-white p-4 rounded-lg text-center hover:bg-primary hover:text-white transition duration-300 shadow-md card-hover" data-aos="zoom-in" data-aos-delay="600">
+                    <i class="fas fa-hand-holding-heart text-2xl sm:text-3xl text-primary mb-2 hover:text-white"></i>
+                    <h4 class="font-bold text-xs sm:text-sm">الجمعيات</h4>
+                </div>
+                <div class="bg-white p-4 rounded-lg text-center hover:bg-primary hover:text-white transition duration-300 shadow-md card-hover" data-aos="zoom-in" data-aos-delay="700">
+                    <i class="fas fa-globe text-2xl sm:text-3xl text-primary mb-2 hover:text-white"></i>
+                    <h4 class="font-bold text-xs sm:text-sm">المنظمات</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Methodology Section -->
+    <section class="py-12 sm:py-16 bg-gradient-to-br from-dark to-purple-900 text-white">
+        <div class="container">
+            <div class="text-center mb-8 sm:mb-12" data-aos="fade-up">
+                <h2 class="text-2xl sm:text-3xl font-bold mb-3">منهجية تنفيذ المشاريع</h2>
+                <p class="text-gray-300 text-xs sm:text-sm">نلتزم بأفضل الممارسات العالمية</p>
+            </div>
+            
+            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4">
+                <div class="glass p-4 rounded-lg text-center card-hover" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-8 h-8 sm:w-10 sm:h-10 bg-secondary rounded-full flex items-center justify-center mx-auto mb-2 font-bold text-sm">1</div>
+                    <h4 class="font-bold mb-1 text-xs sm:text-sm">دراسة الاحتياجات</h4>
+                    <p class="text-xs text-gray-300">تحليل المتطلبات</p>
+                </div>
+                <div class="glass p-4 rounded-lg text-center card-hover" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-8 h-8 sm:w-10 sm:h-10 bg-secondary rounded-full flex items-center justify-center mx-auto mb-2 font-bold text-sm">2</div>
+                    <h4 class="font-bold mb-1 text-xs sm:text-sm">التصميم</h4>
+                    <p class="text-xs text-gray-300">تصميم الواجهات</p>
+                </div>
+                <div class="glass p-4 rounded-lg text-center card-hover" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-8 h-8 sm:w-10 sm:h-10 bg-secondary rounded-full flex items-center justify-center mx-auto mb-2 font-bold text-sm">3</div>
+                    <h4 class="font-bold mb-1 text-xs sm:text-sm">التطوير</h4>
+                    <p class="text-xs text-gray-300">التنفيذ التقني</p>
+                </div>
+                <div class="glass p-4 rounded-lg text-center card-hover" data-aos="fade-up" data-aos-delay="400">
+                    <div class="w-8 h-8 sm:w-10 sm:h-10 bg-secondary rounded-full flex items-center justify-center mx-auto mb-2 font-bold text-sm">4</div>
+                    <h4 class="font-bold mb-1 text-xs sm:text-sm">الاختبار</h4>
+                    <p class="text-xs text-gray-300">ضمان الجودة</p>
+                </div>
+                <div class="glass p-4 rounded-lg text-center card-hover" data-aos="fade-up" data-aos-delay="500">
+                    <div class="w-8 h-8 sm:w-10 sm:h-10 bg-secondary rounded-full flex items-center justify-center mx-auto mb-2 font-bold text-sm">5</div>
+                    <h4 class="font-bold mb-1 text-xs sm:text-sm">الدعم</h4>
+                    <p class="text-xs text-gray-300">الدعم المستمر</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="py-12 sm:py-16 bg-gray-50">
+        <div class="container">
+            <div class="grid md:grid-cols-2 gap-6 lg:gap-10 items-center">
+                <div data-aos="fade-right">
+                    <h2 class="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4">لماذا تختار شباب البادية؟</h2>
+                    <p class="text-gray-600 mb-4 sm:mb-6 text-sm sm:text-base">نحن نقدم حلولاً تقنية متكاملة بفريق متخصص يلتزم بأعلى معايير الجودة</p>
+                    
+                    <div class="grid grid-cols-2 gap-3">
+                        <div class="flex items-center space-x-2 space-x-reverse">
+                            <i class="fas fa-check-circle text-primary text-lg"></i>
+                            <span class="font-medium text-xs sm:text-sm">حلول متكاملة</span>
+                        </div>
+                        <div class="flex items-center space-x-2 space-x-reverse">
+                            <i class="fas fa-check-circle text-primary text-lg"></i>
+                            <span class="font-medium text-xs sm:text-sm">فريق متخصص</span>
+                        </div>
+                        <div class="flex items-center space-x-2 space-x-reverse">
+                            <i class="fas fa-check-circle text-primary text-lg"></i>
+                            <span class="font-medium text-xs sm:text-sm">أحدث التقنيات</span>
+                        </div>
+                        <div class="flex items-center space-x-2 space-x-reverse">
+                            <i class="fas fa-check-circle text-primary text-lg"></i>
+                            <span class="font-medium text-xs sm:text-sm">أنظمة آمنة</span>
+                        </div>
+                        <div class="flex items-center space-x-2 space-x-reverse">
+                            <i class="fas fa-check-circle text-primary text-lg"></i>
+                            <span class="font-medium text-xs sm:text-sm">جودة عالية</span>
+                        </div>
+                        <div class="flex items-center space-x-2 space-x-reverse">
+                            <i class="fas fa-check-circle text-primary text-lg"></i>
+                            <span class="font-medium text-xs sm:text-sm">دعم مستمر</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div data-aos="fade-left" class="relative">
+                    <img src="logo.png" alt="Why Choose Us" class="w-full rounded-xl shadow-2xl">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Values Section -->
+    <section class="py-12 sm:py-16 bg-white">
+        <div class="container">
+            <div class="text-center mb-8 sm:mb-12" data-aos="fade-up">
+                <h2 class="text-2xl sm:text-3xl font-bold mb-3">قيمنا</h2>
+                <div class="w-16 sm:w-20 h-1 bg-gradient-to-r from-primary to-secondary mx-auto rounded-full"></div>
+            </div>
+            
+            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
+                <div class="text-center p-4 rounded-lg bg-gray-50 hover:bg-primary hover:text-white transition duration-300 card-hover" data-aos="zoom-in">
+                    <i class="fas fa-award text-2xl sm:text-3xl text-primary mb-2 hover:text-white"></i>
+                    <h4 class="font-bold text-xs sm:text-sm">الجودة</h4>
+                </div>
+                <div class="text-center p-4 rounded-lg bg-gray-50 hover:bg-primary hover:text-white transition duration-300 card-hover" data-aos="zoom-in" data-aos-delay="100">
+                    <i class="fas fa-lightbulb text-2xl sm:text-3xl text-primary mb-2 hover:text-white"></i>
+                    <h4 class="font-bold text-xs sm:text-sm">الابتكار</h4>
+                </div>
+                <div class="text-center p-4 rounded-lg bg-gray-50 hover:bg-primary hover:text-white transition duration-300 card-hover" data-aos="zoom-in" data-aos-delay="200">
+                    <i class="fas fa-user-tie text-2xl sm:text-3xl text-primary mb-2 hover:text-white"></i>
+                    <h4 class="font-bold text-xs sm:text-sm">الاحترافية</h4>
+                </div>
+                <div class="text-center p-4 rounded-lg bg-gray-50 hover:bg-primary hover:text-white transition duration-300 card-hover" data-aos="zoom-in" data-aos-delay="300">
+                    <i class="fas fa-shield-alt text-2xl sm:text-3xl text-primary mb-2 hover:text-white"></i>
+                    <h4 class="font-bold text-xs sm:text-sm">الأمان</h4>
+                </div>
+                <div class="text-center p-4 rounded-lg bg-gray-50 hover:bg-primary hover:text-white transition duration-300 card-hover" data-aos="zoom-in" data-aos-delay="400">
+                    <i class="fas fa-eye text-2xl sm:text-3xl text-primary mb-2 hover:text-white"></i>
+                    <h4 class="font-bold text-xs sm:text-sm">الشفافية</h4>
+                </div>
+                <div class="text-center p-4 rounded-lg bg-gray-50 hover:bg-primary hover:text-white transition duration-300 card-hover" data-aos="zoom-in" data-aos-delay="500">
+                    <i class="fas fa-tasks text-2xl sm:text-3xl text-primary mb-2 hover:text-white"></i>
+                    <h4 class="font-bold text-xs sm:text-sm">المسؤولية</h4>
+                </div>
+                <div class="text-center p-4 rounded-lg bg-gray-50 hover:bg-primary hover:text-white transition duration-300 card-hover" data-aos="zoom-in" data-aos-delay="600">
+                    <i class="fas fa-chart-line text-2xl sm:text-3xl text-primary mb-2 hover:text-white"></i>
+                    <h4 class="font-bold text-xs sm:text-sm">التطوير</h4>
+                </div>
+                <div class="text-center p-4 rounded-lg bg-gray-50 hover:bg-primary hover:text-white transition duration-300 card-hover" data-aos="zoom-in" data-aos-delay="700">
+                    <i class="fas fa-smile text-2xl sm:text-3xl text-primary mb-2 hover:text-white"></i>
+                    <h4 class="font-bold text-xs sm:text-sm">رضا العملاء</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section id="contact" class="py-12 sm:py-16 bg-gradient-to-br from-primary to-purple-800 text-white relative overflow-hidden">
+        <div class="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%23ffffff\' fill-opacity=\'0.05\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-20"></div>
+        <div class="container text-center relative z-10">
+            <div data-aos="fade-up">
+                <h2 class="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4">هل أنت جاهز لبدء مشروعك؟</h2>
+                <p class="text-purple-200 mb-6 text-sm sm:text-base max-w-xl mx-auto px-4">تواصل معنا الآن عبر واتساب وابدأ رحلتك الرقمية مع نخبة من الخبراء</p>
+                <a href="https://wa.me/201507092631" target="_blank" class="magnetic-btn inline-flex items-center bg-green-500 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full font-bold text-sm sm:text-base hover:bg-green-600 transition shadow-2xl transform hover:scale-105">
+                    <i class="fab fa-whatsapp ml-2 text-xl"></i>
+                    تواصل معنا عبر واتساب
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-8 sm:py-10">
+        <div class="container">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 mb-6">
+                <div>
+                    <div class="flex items-center space-x-3 space-x-reverse mb-3">
+                        <h3 class="text-xl font-bold text-primary">SAB</h3>
+                    </div>
+                    <p class="text-gray-400 text-xs sm:text-sm leading-relaxed">
+                        شباب البادية للحلول الرقمية - شريكك في بناء المستقبل الرقمي
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold mb-3 text-secondary text-sm sm:text-base">روابط سريعة</h4>
+                    <ul class="space-y-2 text-xs sm:text-sm text-gray-400">
+                        <li><a href="#home" class="hover:text-white transition">الرئيسية</a></li>
+                        <li><a href="#about" class="hover:text-white transition">من نحن</a></li>
+                        <li><a href="#services" class="hover:text-white transition">خدماتنا</a></li>
+                        <li><a href="#team" class="hover:text-white transition">فريق العمل</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold mb-3 text-secondary text-sm sm:text-base">خدماتنا</h4>
+                    <ul class="space-y-2 text-xs sm:text-sm text-gray-400">
+                        <li><a href="#" class="hover:text-white transition">تطوير البرمجيات</a></li>
+                        <li><a href="#" class="hover:text-white transition">الأنظمة الحكومية</a></li>
+                        <li><a href="#" class="hover:text-white transition">الأمن السيبراني</a></li>
+                        <li><a href="#" class="hover:text-white transition">الذكاء الاصطناعي</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold mb-3 text-secondary text-sm sm:text-base">تواصل معنا</h4>
+                    <p class="text-gray-400 text-xs sm:text-sm mb-3">نحن هنا لمساعدتك على مدار الساعة</p>
+                    <a href="https://wa.me/201507092631" target="_blank" class="inline-flex items-center bg-green-500 text-white px-3 py-1.5 rounded-lg hover:bg-green-600 transition text-xs sm:text-sm">
+                        <i class="fab fa-whatsapp ml-2"></i>
+                        واتساب
+                    </a>
+                </div>
+            </div>
+            
+            <div class="border-t border-white/10 pt-6 text-center text-gray-400 text-xs sm:text-sm">
+                <p>&copy; 2024 شباب البادية للحلول الرقمية. جميع الحقوق محفوظة</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/201507092631" target="_blank" class="whatsapp-float bg-green-500 text-white rounded-full flex items-center justify-center shadow-2xl hover:bg-green-600 transition">
+        <i class="fab fa-whatsapp text-2xl sm:text-3xl"></i>
+    </a>
+
+    <script>
+        // Initialize AOS Animation
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100,
+            disable: function() {
+                // Disable animations on mobile for better performance
+                const maxWidth = 768;
+                return window.innerWidth < maxWidth;
+            }
+        });
+
+        // Scroll Progress Bar
+        window.addEventListener('scroll', function() {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.getElementById('scrollProgress').style.width = scrolled + '%';
+            
+            // Navbar Scroll Effect
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('nav-scrolled');
+            } else {
+                navbar.classList.remove('nav-scrolled');
+            }
+        });
+
+        // Mobile Menu Toggle
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+
+        function toggleMenu() {
+            hamburger.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+            mobileMenuOverlay.classList.toggle('active');
+            document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+        }
+
+        hamburger.addEventListener('click', toggleMenu);
+        mobileMenuOverlay.addEventListener('click', toggleMenu);
+
+        // Close menu when clicking on a link
+        document.querySelectorAll('.mobile-menu a').forEach(link => {
+            link.addEventListener('click', toggleMenu);
+        });
+
+        // Counter Animation
+        const counters = document.querySelectorAll('.counter');
+        const speed = 200;
+
+        const animateCounters = () => {
+            counters.forEach(counter => {
+                const target = +counter.getAttribute('data-target');
+                const count = +counter.innerText;
+                const inc = target / speed;
+
+                if (count < target) {
+                    counter.innerText = Math.ceil(count + inc);
+                    setTimeout(animateCounters, 20);
+                } else {
+                    counter.innerText = target;
+                }
+            });
+        };
+
+        // Trigger counters when in viewport
+        const observerOptions = {
+            threshold: 0.5
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCounters();
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        const countersSection = document.querySelector('.counter');
+        if (countersSection) {
+            observer.observe(countersSection.parentElement.parentElement);
+        }
+
+        // Magnetic Button Effect - Desktop only
+        if (window.innerWidth > 768) {
+            const magneticBtns = document.querySelectorAll('.magnetic-btn');
+            
+            magneticBtns.forEach(btn => {
+                btn.addEventListener('mousemove', function(e) {
+                    const pos = btn.getBoundingClientRect();
+                    const x = e.clientX - pos.left;
+                    const y = e.clientY - pos.top;
+                    
+                    const centerX = pos.width / 2;
+                    const centerY = pos.height / 2;
+                    
+                    const rotateX = (y - centerY) / 10;
+                    const rotateY = (centerX - x) / 10;
+                    
+                    btn.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.05)`;
+                });
+                
+                btn.addEventListener('mouseleave', function() {
+                    btn.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale(1)';
+                });
+            });
+        }
+
+        // Smooth Scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add animation delay classes
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes blob {
+                0% { transform: translate(0px, 0px) scale(1); }
+                33% { transform: translate(30px, -50px) scale(1.1); }
+                66% { transform: translate(-20px, 20px) scale(0.9); }
+                100% { transform: translate(0px, 0px) scale(1); }
+            }
+            .animate-blob {
+                animation: blob 7s infinite;
+            }
+            .animation-delay-2000 {
+                animation-delay: 2s;
+            }
+            .animation-delay-4000 {
+                animation-delay: 4s;
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Handle resize events
+        let resizeTimer;
+        window.addEventListener('resize', function() {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(function() {
+                // Re-initialize AOS on resize if needed
+                AOS.refresh();
+            }, 250);
+        });
+    </script>
+</body>
+</html>
